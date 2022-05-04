@@ -1,0 +1,5 @@
+<%= link_to "Home", root_path %>
+<h1>Statistics for you observation session</h1>
+<p>Number of events observed: <%= @observation_session.observations.count %></p>
+<p>Number of events going left: <%= @observation_session.observations.where(value:"left").count %> </p>
+<p>Number of events going right: <%= @observation_session.observations.where(value:"right").count %> </p>
