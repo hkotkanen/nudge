@@ -3,25 +3,27 @@ class ObservationSessionsController < ApplicationController
     @observation_session = ObservationSession.find(params[:id])
   end
 
-  def new
+  def start
     @now = DateTime.now
     @user = current_user()
-    unless ObservationSession.find_by(user:@user, end:nil)
+    @ongoing_session = ObservationSession.find_by(user:@user, end:nil)
+    unless @ongoing_session
       @observation_session = ObservationSession.create(start:@now, user:@user)
     else
-      redirect_to :observations
+      @ongoing_session.update_attribute(:end, @now)
+      redirect_to :observations  # need a toast for "something went wrong"
     end
   end
 
   def end
     @now = DateTime.now
     @user = User.find(session[:user_id])
-    @ongoing_observation_session = ObservationSession.find_by(user:@user, end:nil)
-    unless @ongoing_observation_session
-      redirect_to :observations
+    @ongoing_session = ObservationSession.find_by(user:@user, end:nil)
+    unless @ongoing_session
+      redirect_to :observations  # need a toast for "something went wrong"
     else
-      @ongoing_observation_session.update_attribute(:end, @now)
-      redirect_to :observations
+      @ongoing_session.update_attribute(:end, @now)
+      redirect_to @ongoing_session
     end
   end
 end

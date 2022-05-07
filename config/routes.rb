@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   root "site#index"
 
   get "/observations", to: "observations#index"
-  resource :observations
+  resources :observations
 
-  get "/observation_session/new", to: "observation_sessions#new"
-  get "/observation_session/end", to: "observation_sessions#end"
-  get "/observation_session/:id", to: "observation_sessions#show"
+  get "/observation_sessions/start", to: "observation_sessions#start"
+  get "/observation_sessions/end", to: "observation_sessions#end"
+  # get "/observation_sessions/:id", to: "observation_sessions#show"
+  resources :observation_sessions
 end

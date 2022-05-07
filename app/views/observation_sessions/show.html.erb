@@ -1,5 +1,9 @@
-<%= link_to "Home", root_path %>
-<h1>Statistics for you observation session</h1>
+<a href="<%= root_path %>" class="underline font-orange-500">Home</a>
+<h2 class="text-2xl font-bold leading-tight my-4 text-indigo-500">Statistics for you observation session with id <%= @observation_session.id %></h2>
 <p>Number of events observed: <%= @observation_session.observations.count %></p>
 <p>Number of events going left: <%= @observation_session.observations.where(value:"left").count %> </p>
 <p>Number of events going right: <%= @observation_session.observations.where(value:"right").count %> </p>
+
+<div class="my-10">
+  <a href="<%= observation_sessions_start_path %>"><button class="rounded bg-orange-500 hover:bg-orange-600 text-gray-100 font-bold py-2 px-4">Start a new session</button></a>
+</div>

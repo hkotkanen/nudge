@@ -1,0 +1,14 @@
+<% content_for :head do %>
+  <%= javascript_import_module_tag "observation_session" %>
+<% end %>
+
+<h2 class="text-2xl font-bold leading-tight my-4 text-indigo-500">Observation session START</h2>
+<div class="on-top-of-video">
+  <p>Hello user <%= @user.id %>.</p>
+  <p>Session ends in <span id="observation-session-countdown"></span></p>
+  <p>Nudge the ball with your mind to make it go <strong>LEFT</strong>!</p>
+</div>
+<div class="container mx-auto py-5 h-96">
+  <div class="session-video-stream bg-gray-100 object-center h-full w-3/4">Here should be a video feed</div>
+</div>
+<a href="<%= observation_sessions_end_path %>"><button id="end-session-button" class="rounded bg-orange-500 hover:bg-orange-600 text-gray-100 font-bold my-5 py-2 px-4">End session</button></a>
