@@ -10,8 +10,13 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        'emoji': ['Noto Color Emoji'],
       },
     },
+    fontSize: {
+      '5xl': '3rem',
+      '6xl': '4rem',
+    }
   },
   plugins: [
     require('@tailwindcss/forms'),

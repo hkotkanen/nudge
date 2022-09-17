@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_02_101613) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_141116) do
   create_table "observation_session_observations", force: :cascade do |t|
     t.integer "observation_session_id", null: false
     t.integer "observation_id", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_101613) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "display_name"
   end
 
   add_foreign_key "observation_session_observations", "observation_sessions"

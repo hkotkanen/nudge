@@ -19,6 +19,6 @@ class ObservationsController < ApplicationController
 
   private
     def observation_params
-      params.require(:observation).permit(:start, :end, :value)
+      params.require(:value, :start).permit(:end)
     end
 end

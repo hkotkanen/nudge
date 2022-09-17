@@ -11,3 +11,10 @@
 }
 
 */
+
+@layer base {
+  @font-face {
+    font-family: 'Noto Color Emoji';
+    src: font-url('NotoColorEmoji.ttf') format('truetype');
+  }
+}

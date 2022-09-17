@@ -18,5 +18,11 @@ module Nudge
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # load our custom font
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    # data for emojis
+    #config.assets.paths << Rails.root.join("app", "assets", "data")
   end
 end

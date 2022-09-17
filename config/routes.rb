@@ -10,4 +10,13 @@ Rails.application.routes.draw do
   get "/observation_sessions/end", to: "observation_sessions#end"
   # get "/observation_sessions/:id", to: "observation_sessions#show"
   resources :observation_sessions
+
+  get "/profile", to: "profile#index"
+  resources :profile
+
+  get "/high_scores", to: "high_scores#index"
+  get "/high_score", to: "high_scores#index"
+  get "/high-score", to: "high_scores#index"
+  get "/high-scores", to: "high_scores#index"
+  resources :high_scores
 end

@@ -1,0 +1,18 @@
+<a href="<%= root_path %>" class="underline text-orange-500">Home</a>
+<h2 class="text-2xl font-bold leading-tight my-4 text-indigo-500">High Scores</h2>
+
+<div class="my-5">
+  <p><strong>Total number of events influenced by you:</strong> <%= @observations.count %></p>
+  <p><strong>LEFT:</strong> <%= @observations.where(value:'left').count %>
+  <strong>RIGHT:</strong> <%= @observations.where(value:'right').count %></p>
+</div>
+
+
+<h2 class="text-xl font-bold leading-tight mt-18 text-indigo-500">All sessions</h2>
+<ol>
+  <% @scores.each do |player| %>
+    <li>
+      <%= @users.find(player.id).display_name %>: <%= player.score%>
+    </li>
+  <% end %>
+</ol>

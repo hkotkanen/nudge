@@ -10,6 +10,7 @@ class ObservationSessionsController < ApplicationController
     unless @ongoing_session
       @observation_session = ObservationSession.create(start:@now, user:@user)
     else
+      # There is already a session for this user!?!?
       @ongoing_session.update_attribute(:end, @now)
       redirect_to :observations  # need a toast for "something went wrong"
     end
