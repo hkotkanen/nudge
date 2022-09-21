@@ -18,3 +18,18 @@
     src: font-url('NotoColorEmoji.ttf') format('truetype');
   }
 }
+
+
+span.left-score {
+  color: red;
+}
+span.left-score:after {
+  content: "\2190";
+}
+
+span.right-score {
+  color: blue;
+}
+span.right-score:before {
+  content: "\2192";
+}

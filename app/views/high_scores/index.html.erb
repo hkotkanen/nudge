@@ -1,18 +1,18 @@
 <a href="<%= root_path %>" class="underline text-orange-500">Home</a>
-<h2 class="text-2xl font-bold leading-tight my-4 text-indigo-500">High Scores</h2>
-
-<div class="my-5">
-  <p><strong>Total number of events influenced by you:</strong> <%= @observations.count %></p>
-  <p><strong>LEFT:</strong> <%= @observations.where(value:'left').count %>
-  <strong>RIGHT:</strong> <%= @observations.where(value:'right').count %></p>
-</div>
-
-
-<h2 class="text-xl font-bold leading-tight mt-18 text-indigo-500">All sessions</h2>
+<h2 class="text-xl font-bold leading-tight mt-18 text-indigo-500">Top 10</h2>
 <ol>
-  <% @scores.each do |player| %>
+  <% @scores_sorted.each do |player| %>
     <li>
-      <%= @users.find(player.id).display_name %>: <%= player.score%>
+      (<%= player[0] %>) <%= @users.find(id=player[0]).display_name.html_safe %> : <%= player[1][:score] %> <small>(<span class="left-score"><%= player[1][:left] %></span><span class="right-score"><%= player[1][:right] %></span>)</small>
+    </li>
+  <% end %>
+</ol>
+
+<h2 class="text-xl font-bold leading-tight mt-18 text-indigo-500">All</h2>
+<ol>
+  <% @users.each do |player| %>
+    <li>
+      (<%= player.id %>) <%= player.display_name.html_safe %> : <%= @scores[player.id][:score] %> <small>(<%= @scores[player.id][:left] %> / <%= @scores[player.id][:right] %>)</small>
     </li>
   <% end %>
 </ol>

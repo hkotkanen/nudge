@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   resources :profile
 
   get "/high_scores", to: "high_scores#index"
-  get "/high_score", to: "high_scores#index"
-  get "/high-score", to: "high_scores#index"
-  get "/high-scores", to: "high_scores#index"
-  resources :high_scores
+#  get "/high_score", to: "high_scores#index"
+#  get "/high-score", to: "high_scores#index"
+#  get "/high-scores", to: "high_scores#index"
+#  resources :high_scores
 end
